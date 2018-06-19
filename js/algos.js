@@ -87,9 +87,23 @@ function bubblesort()
 }
 
 function shellsort()
-{
-  console.log("implement me !");
-}
+{  // calcul de la valeur initiale de h
+  let count = 0;
+  let h = Math.floor(csvData.length / 3);
+  while (h > 0) {
+    for (let startPosition = 0; startPosition < h; startPosition++){
+      // tri par insertion
+      for (let i = startPosition + h; i < csvData.length; i+= h) {
+        if(isLess(i, i-h)){
+          swap(i, i-h);
+        }
+      }
+    }
+    h--;
+  }
+}   
+
+
 function mergesort(data)
 {
   console.log("implement me !");
