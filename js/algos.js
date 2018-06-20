@@ -6,7 +6,6 @@ Math.toRadians = function(degrees) {
 
 function distanceFromGrenoble(city)
 {
-  console.log("implement me !");
   var GrenobleLat = 45.166667;
   var GrenobleLong = 5.716667;
 
@@ -29,7 +28,6 @@ var d = Rayon * c;
 function swap(i,j) // Swap the values in array csvData
 {
   displayBuffer.push(['swap', i, j]); // Do not delete this line (for display)
-  console.log("implement me !");
   // [csvData[i],csvData[j]] = [csvData[j],csvData[i]]; destructuring asignment array matching.
   let temp = csvData[i];
   csvData[i] = csvData[j];
@@ -48,7 +46,7 @@ function isLess(A,B)
 
 
 function insertsort()
-{
+{// on parcourt le tableau du début à la fin.
   for (let i =1; i < csvData.length; i++){
     for(let k = i; k > 0; k-- ){
       if (isLess(k, k-1)){
@@ -59,7 +57,7 @@ function insertsort()
 }
 
 function selectionsort()
-{
+{ //recherche le plus grand element (ou petit) le place en fin de tableau(ou début)recommence avec le second.
   for(let i = 0; i < csvData.length; i++ ){
     let k = i;
     for (let j = i+1; j < csvData.length; j++){
@@ -71,7 +69,7 @@ function selectionsort()
   }
 }
 function bubblesort()
-{
+{ //compare 2valeurs adjacentes et inverse leur position si mal placée.
  for (let i = 0; i < csvData.length; i++){
    let swapped = false;
    for(let j = csvData.length -1; j >= i+1; j--){
@@ -106,17 +104,36 @@ function shellsort()
 
 function mergesort(data)
 {
-  console.log("implement me !");
+  
 }
 function heapsort(data)
 {
-  console.log("implement me !");
+  
 }
 
 function quicksort()
 {
-  console.log("implement me !");
+  quicksort2(0, csvData.length-1);
 }
+
+function quicksort2(start, end){
+  if( end <= start){
+    return;
+  }
+  let indexPivot = start;
+  let k = start;
+
+  for(let i = start + 1; i<= end; i++ ){
+    if(isLess (i, indexPivot)){
+      swap(++k, i);//incremente avant de le passer.
+    }
+  }
+  swap(k, indexPivot);
+  quicksort2(start, k-1);
+  quicksort2(k+1, end);
+}
+
+
 function quick3sort(data)
 {
   console.log("implement me !");
